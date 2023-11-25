@@ -90,47 +90,6 @@ namespace H1Store.Catalogo.Application.Services
             await _produtoRepository.AlterarPreco(EncontrarProduto, valor);
         }
 
-
-        //public async Task AtualizarEstoque(Guid id, int quantidade)
-        //{
-        //    var encontradoProduto = await _produtoRepository.ObterProdutoCodigo(id);
-        //    int estoqueFinal = encontradoProduto.QuantidadeEstoque - quantidade;
-        //    int estoqueMinimo = encontradoProduto.EstoqueMinimo;
-
-        //    if (encontradoProduto == null)
-        //    {
-        //        throw new ApplicationException("Não é possível alterar o estoque de um produto que não existe!");
-        //    }
-
-        //    else if (estoqueFinal <= estoqueMinimo)
-        //    {
-        //        string assunto = "Estoque Esgotado";
-        //        string corpoEmailModelo = $"Olá Comprador(a) , o produto {encontradoProduto.Descricao} está abaixo do estoque mínimo {encontradoProduto.EstoqueMinimo} definido no sistema, logo, você precisa avaliar se é necessário realizar um novo pedido de compra.";
-        //        string emailDestino = "ericsantos497@gmail.com";
-
-
-        //        if (!string.IsNullOrEmpty(emailDestino))
-        //            Email.Enviar(assunto, corpoEmailModelo, emailDestino, _emailConfig);
-
-        //        encontradoProduto.DebitarEstoque(-quantidade);
-        //    }
-        //    else if (quantidade < 0)
-        //    {
-        //        if (!encontradoProduto.PossuiEstoque(-quantidade))
-        //        {
-        //            throw new ArgumentException("Estoque insuficiente para debitar!");
-        //        }
-
-        //        encontradoProduto.DebitarEstoque(-quantidade);
-        //    }
-        //    else
-        //    {
-        //        encontradoProduto.ReporEstoque(quantidade);
-        //    }
-
-        //    await _produtoRepository.AtualizarEstoque(encontradoProduto, quantidade);
-        //}
-
         public async Task AtualizarEstoque(Guid id, int quantidade)
         {
             var encontradoProduto = await _produtoRepository.ObterProdutoCodigo(id);
